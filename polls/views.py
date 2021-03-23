@@ -11,8 +11,8 @@ from django.contrib.auth.decorators import login_required
 # Get questions and display them
 # @login_required
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list}
+    current_questions = Question.objects.order_by('-pub_date')[:5]
+    context = {'current_questions': current_questions}
     return render(request, 'polls/index.html', context)
 
 # Show specific question and choices
